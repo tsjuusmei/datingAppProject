@@ -49,64 +49,70 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => res.render('index', {data: data}))
 app.get('/about', (req, res) => res.render('about'))
 app.get('/contact', (req, res) => res.render('contact'))
-app.get('/add', (req, res) => res.render('add'))
-app.get('/:id', detail)
+
+
+
+// practices for Backend class
+
+// app.get('/add', (req, res) => res.render('add'))
+// app.get('/:id', detail)
 
 // post route for form
-app.post('/', upload.single('cover'), add)
+// app.post('/', upload.single('cover'), add)
 
-function detail(req, res, next) {
-    const id = req.params.id
-    const movie = find(data, function(movie) {
-        return movie.id === id
-    })
+// function detail(req, res, next) {
+//     const id = req.params.id
+//     const movie = find(data, function(movie) {
+//         return movie.id === id
+//     })
 
-    if(!movie) {
-        next()
-        return
-    }
+//     if(!movie) {
+//         next()
+//         return
+//     }
 
-    res.render('detail.ejs', {data: movie})
-}
+//     res.render('detail.ejs', {data: movie})
+// }
 
-let data = [
-    {
-        id: 'film1',
-        title: 'filmeen',
-        plot: 'plot voor film een',
-        description: 'de descriptie voor film een gaat als voort:'
-    },
-    {
-        id: 'film2',
-        title: 'filmtwee',
-        plot: 'plot voor film twee',
-        description: 'de descriptie voor film twee is heel anders'
-    }
-]
+// let data = [
+//     {
+//         id: 'film1',
+//         title: 'filmeen',
+//         plot: 'plot voor film een',
+//         description: 'de descriptie voor film een gaat als voort:'
+//     },
+//     {
+//         id: 'film2',
+//         title: 'filmtwee',
+//         plot: 'plot voor film twee',
+//         description: 'de descriptie voor film twee is heel anders'
+//     }
+// ]
 
-function add(req, res) {
-    const id = slug(req.body.title).toLowerCase()
+// function add(req, res) {
+//     const id = slug(req.body.title).toLowerCase()
   
-    data.push({
-      id: id,
-      title: req.body.title,
-      cover: req.file ? req.file.filename : null,
-      plot: req.body.plot,
-      description: req.body.description
-    })
+//     data.push({
+//       id: id,
+//       title: req.body.title,
+//       cover: req.file ? req.file.filename : null,
+//       plot: req.body.plot,
+//       description: req.body.description
+//     })
   
-    res.redirect('/' + id)
-  }
+//     res.redirect('/' + id)
+//   }
 
-  function remove(req, res) {
-    var id = req.params.id
+//   function remove(req, res) {
+//     var id = req.params.id
   
-    data = data.filter(function (value) {
-      return value.id !== id
-    })
+//     data = data.filter(function (value) {
+//       return value.id !== id
+//     })
   
-    res.json({status: 'ok'})
-  }
+//     res.json({status: 'ok'})
+//   }
+
 
 findDb('fakeUsers')
   
