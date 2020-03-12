@@ -46,9 +46,9 @@ app.set('view engine', 'ejs')
 
 
 // routing with ejs files
-app.get('/', (req, res) => res.render('index', {data: data}))
-app.get('/about', (req, res) => res.render('about'))
-app.get('/contact', (req, res) => res.render('contact'))
+app.get('/', (req, res) => res.render('profile', {data: data}))
+app.get('/likes', (req, res) => res.render('likes'))
+app.get('/visitors', (req, res) => res.render('visitors'))
 
 
 
