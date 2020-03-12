@@ -5,19 +5,38 @@
     <title>Profile</title>
 </head>
 <body>
-    <!-- setup for dynamic data -->
-    <!-- <h1>Route to: <%=  %></h1> -->
     
+    <body class="profile">
 
-    <!-- for backend excersize example -->
-    <!-- <% for( let i = 0; i < data.length; i++) { %>
-        <h1> <%= data[i].title %> </h1>
-        <h2> Plot </h2>
-        <p> <%= data[i].plot %> </p>
-        <h2> Description </h2>
-        <p> <%= data[i].description %> </p>
-
-    <% } %> -->
+        <header>
+            <figure>
+            <img src="static/images/profile.pic.jpg" alt="Profile picture">
+            <figcaption>Guus</figcaption>
+            </figure>
+        </header>
+    
+        <main>
+                <ul>
+                    <li>
+                        <a href='visitors'>
+                            <figure>
+                                <img src="static/images/eyes.png" alt="Visitors icon">
+                                <figcaption> 4 Visitors</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="likes">
+                            <figure>
+                                <img src="static/images/heart.png" alt="Likes icon">
+                                <figcaption> 2 Likes</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                </ul>
+        </main>
+    
+    <%- include('footer') %>
 
     <%- include('tail') %>
 
