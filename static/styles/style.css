@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    font-family: 'Montserrat';
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+header figure img {
+    max-width: 25vw;
+    border-radius: 50%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+main > ul li figure img{
+    max-width: 10vw;
+}
+
+main > ul li figure figcaption {
+    margin-top: 10px;
+}
+
+main > ul li figure {
+    text-align: center;
+}
+
+main > ul {
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+main > div {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+main > div ul li img {
+    max-width: 10vw;
+    border-radius: 50%;
+}
+
+main > div ul li {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+/* margins for profile pictures on likes and visitors page */
+.likes main > div ul li img {
+    margin-left: 20px;
+}
+
+.visitors main > div ul li img {
+    margin-right: 20px;
+}
+
+/* footer navigatie */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    border-top: 1px solid rgba(0, 0, 0, .5);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul a li {
+    width: 33vw;
+    height: 10vh;
+    text-align: center;
+}
+
+nav ul a li img {
+    max-width: 10vw;
+    max-height: 11vw;
+    margin-top: 2.5vh;
+}
