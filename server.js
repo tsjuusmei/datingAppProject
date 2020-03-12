@@ -17,14 +17,14 @@ async function findDb(collection, searchValue){
     console.log('findindb func')
 
     // Source: https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database
-
+    
     const uri = process.env.DB_URI
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    
+
     try {
         // Connect to the MongoDB cluster
         await client.connect();
- 
+
         const db = client.db('db');
 
         const informatie = await db.collection(collection).find(searchValue).toArray();
