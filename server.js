@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const find = require('array-find')
 const slug = require('slug')
 const multer = require('multer')
-const {MongoClient} = require('mongodb')
+const mongo = require('mongodb')
 require('dotenv').config()
 
 const app = express()
@@ -13,30 +13,38 @@ const port = 3000
 
 const upload = multer({dest: 'static/upload'})
 
-async function findDb(collection, searchValue){
-    console.log('findindb func')
+let db = null
+const uri = process.env.DB_URI
 
-    // Source: https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database
+mongo.MongoClient.connect(uri, (err, client) => {
+    if (err) { throw err } 
+    db = client.db(process.env.DB_NAME)
+})
+
+// async function findDb(collection, searchValue){
+//     console.log('findindb func')
+
+//     // Source: https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database
     
-    const uri = process.env.DB_URI
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+//     const uri = process.env.DB_URI
+//     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    try {
-        // Connect to the MongoDB cluster
-        await client.connect();
+//     try {
+//         // Connect to the MongoDB cluster
+//         await client.connect();
 
-        const db = client.db('db');
+//         const db = client.db('db');
 
-        const informatie = await db.collection(collection).find(searchValue).toArray();
-        console.log(informatie)
-		return informatie
+//         const informatie = await db.collection(collection).find(searchValue).toArray();
+//         console.log(informatie)
+// 		return informatie
  
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-}
+//     } catch (e) {
+//         console.error(e);
+//     } finally {
+//         await client.close();
+//     }
+
 
 // static files from static folders
 app.use('/static', express.static('static'))
@@ -50,6 +58,7 @@ app.get('/', (req, res) => res.render('profile'))
 app.get('/likes', (req, res) => res.render('likes'))
 app.get('/visitors', (req, res) => res.render('visitors'))
 app.get('/profile', (req, res) => res.render('profile'))
+app.get('/test', test)
 
 
 
@@ -114,8 +123,21 @@ app.get('/profile', (req, res) => res.render('profile'))
 //     res.json({status: 'ok'})
 //   }
 
+// calling function for searching database
+// findDb('fakeUsers')
 
-findDb('fakeUsers')
+function test(req, res) {
+    db.collection('fakeUsers').find().toArray(done)
+
+    function done(err, data) {
+        if(err) {
+            next(err)
+        } else {
+            console.log(data)
+            res.render('test.ejs', {data: data})
+        }
+    }
+}
   
 // 404 when not found
 app.use((req, res) => res.status(404).send('404'))
