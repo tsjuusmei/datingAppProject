@@ -2,16 +2,13 @@
 <%- include('head') %>
 
 <body>
-    <%- include ('header') %>
-    <%- include ('main') %>
+    <%- include ('head') %>
 
 <h1>Movies</h1>
 <% for (var index = 0; index < data.length; index++) { %>
-    <h2>
-        <a href="/<%= data[index].id %>"> <%= data[index].title %> </a>
-    </h2>   
-    <p> <%= data[index].plot %> </p>
-    <p> <%= data[index].description %> </p>
+    <h2> <%= data[index].name %> </h2>   
+    <p> <%= data[index].name %> </p>
+    <p> <%= data[index].age %> </p>
 <%} %>
 
 
