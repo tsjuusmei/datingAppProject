@@ -56,4 +56,4 @@ function test(req, res) {
 app.use((req, res) => res.status(404).send('404'))
 
 // listen to port and display the port in console
-app.listen(port, () => console.log('listening on port ' + port))
+app.listen(port, () => console.log('listening on port ' + port));
