@@ -36,3 +36,7 @@ npm start
 ``` 
 
 6. Go to ```localhost:3000``` in your browser to use the application.
+
+# License
+
+[MIT](https://github.com/tsjuusmei/datingAppProject/blob/master/LICENSE)
