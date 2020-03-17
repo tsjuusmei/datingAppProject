@@ -21,7 +21,7 @@ Follow these steps to install the feature.
 ``` 
 DB_NAME= yourDbName
 DB_URI= yourDbUri
-SESSION_SECRET=yourSecret
+SESSION_SECRET= yourSecret
 ``` 
 
 4. Create a .gitignore file in the same folder and add the following lines to the file:
