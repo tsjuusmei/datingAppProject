@@ -60,5 +60,13 @@ function test(req, res) {
 // 404 when not found
 app.use((req, res) => res.status(404).send('404'))
 
+// session for user
+app.use(session({ 
+    resave: false,
+    saveUninitialized: true,
+    secure: true,
+    secret: process.env.SESSION_SECRET
+}));
+
 // listen to port and display the port in console
 app.listen(port, () => console.log('listening on port ' + port));
