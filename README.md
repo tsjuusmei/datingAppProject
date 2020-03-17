@@ -10,30 +10,31 @@ Follow these steps to install the feature.
 
 1. Clone this repository by typing the following command in your terminal:
 
-``` git clone https://github.com/tsjuusmei/datingAppProject.git ```
+   ``` git clone https://github.com/tsjuusmei/datingAppProject.git ```
 
 2. Install the Node modules by typing the following command in your terminal:
 
-``` npm install ``` 
+   ``` npm install ``` 
 
 3. Create a .env file within the folder and add the following lines to the file:
 
-``` 
-DB_NAME= yourDbName
-DB_URI= yourDbUri
-``` 
+   ``` 
+   DB_NAME= yourDbName
+   DB_URI= yourDbUri
+   SESSION_SECRET= yourSecret
+   ``` 
 
 4. Create a .gitignore file in the same folder and add the following lines to the file:
 
-```
-/node_modules
-.env
-``` 
+   ```
+   /node_modules
+   .env
+   ``` 
 
 5. Run the server by running the following command in your terminal:
-```
-npm start
-``` 
+   ```
+   npm start
+   ``` 
 
 6. Go to ```localhost:3000``` in your browser to use the application.
 
