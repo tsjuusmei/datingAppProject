@@ -1,15 +1,17 @@
 const express = require('express')
+const session = require('express-session')
 const path = require('path')
 const bodyParser = require('body-parser')
 const find = require('array-find')
 const slug = require('slug')
 const multer = require('multer')
 const mongo = require('mongodb')
-require('dotenv').config()
 
 const app = express()
 
 const port = 3000
+
+require('dotenv').config()
 
 const upload = multer({dest: 'static/upload'})
 
@@ -37,6 +39,10 @@ app.get('/likes', (req, res) => res.render('likes'))
 app.get('/visitors', (req, res) => res.render('visitors'))
 app.get('/profile', (req, res) => res.render('profile'))
 app.get('/test', test)
+
+function visitors(req, res) {
+    db.collection('fakeUsers').find().
+}
 
 function test(req, res) {
     db.collection('fakeUsers').find().toArray(done)
