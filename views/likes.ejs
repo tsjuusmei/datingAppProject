@@ -39,8 +39,12 @@
 
         <div>
             <ul>
-                <li> Ralf Zonneveld <img src="static/images/profile.pic.jpg" alt="Profile picture"> </li>
-                <li> Ralf Zonneveld <img src="static/images/profile.pic.jpg" alt="Profile picture"> </li>
+                <% for (let i = 0; i < likes.length ; i++) { %>
+                    <li> 
+                        <%= likes[i].name %>
+                    </li>
+
+                <% } %>
             </ul>
         </div>
 

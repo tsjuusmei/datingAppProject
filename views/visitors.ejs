@@ -18,6 +18,7 @@
     <main>
 
         <ul>
+            
             <li>
                 <a href='visitors'>
                     <figure>
@@ -38,10 +39,12 @@
 
         <div>
             <ul>
-                <li> <img src="static/images/profile.pic.jpg" alt="Profile picture"> Ralf Zonneveld</li>
-                <li> <img src="static/images/profile.pic.jpg" alt="Profile picture"> Ralf Zonneveld</li>
-                <li> <img src="static/images/profile.pic.jpg" alt="Profile picture"> Ralf Zonneveld</li>
-                <li> <img src="static/images/profile.pic.jpg" alt="Profile picture"> Ralf Zonneveld</li>
+                <% for (let i = 0; i < visitors.length ; i++) { %>
+                    <li> 
+                        <%= visitors[i].name %>
+                    </li>
+
+                <% } %>
             </ul>
         </div>
 
