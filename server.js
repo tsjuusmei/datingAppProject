@@ -5,7 +5,6 @@ const find = require('array-find')
 const slug = require('slug')
 const multer = require('multer')
 const mongo = require('mongodb')
-// const {MongoClient} = require('mongodb')
 require('dotenv').config()
 
 const app = express()
