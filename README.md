@@ -1,5 +1,5 @@
 # datingAppProject
-This is my feature for a dating app. It shows the user who he or she has been visited and/or liked by, and can like users back!
+This is my feature for a dating app. It shows the user who he or she has been visited and/or liked by, and can like (and unlike) users back!
 
 # About this project
 This will be my dating app for Project Tech, a project for the second year of Communication & Multimedia Design.
