@@ -1,24 +1,23 @@
 const express = require('express')
 const session = require('express-session')
-const path = require('path')
 const bodyParser = require('body-parser')
-const find = require('array-find')
-const slug = require('slug')
-const multer = require('multer')
 const mongo = require('mongodb')
 const ObjectID  = mongo.ObjectID;
+require('dotenv').config()
 
 const app = express()
+
+const port = 3000
 
 app.use('/static', express.static('static'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-const port = 3000
-
-require('dotenv').config()
-
-const upload = multer({dest: 'static/upload'})
+app.use(session({ 
+    resave: false,
+    saveUninitialized: true,
+    secure: true,
+    secret: process.env.SESSION_SECRET
+}));
 
 let db = null
 const uri = process.env.DB_URI
@@ -29,14 +28,6 @@ mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true
     }
     db = client.db(process.env.DB_NAME)
 })
-
-// session for user
-app.use(session({ 
-    resave: false,
-    saveUninitialized: true,
-    secure: true,
-    secret: process.env.SESSION_SECRET
-}));
 
 
 // routing with ejs files
