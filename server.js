@@ -47,7 +47,7 @@ app.get('/likes', async (req, res) => {
         user.likedBy.forEach((likerId) => { // make a foreach for each like in likedBy array in db
             promises.push(db.collection('fakeUsers').findOne({ _id: new ObjectID(likerId)})) // For each like in the likedBy array, get the corresponding user from the database and push it as a promise to the promises[]
         })
-        const likes = await Promise.all(promises) // wait for all promises to finish. source for promises https://www.youtube.com/watch?v=01RTj1MWec0
+        const likes = await Promise.all(promises) // if all promises are completed, the data will be stored in const likes. source for promises https://www.youtube.com/watch?v=01RTj1MWec0
         res.render('likes', {likes: likes, user})
     } catch(err) {
         console.log(err)
