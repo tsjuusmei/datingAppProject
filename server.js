@@ -10,6 +10,10 @@ const ObjectID  = mongo.ObjectID;
 
 const app = express()
 
+app.use('/static', express.static('static'))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 const port = 3000
 
 require('dotenv').config()
@@ -34,12 +38,6 @@ app.use(session({
     secret: process.env.SESSION_SECRET
 }));
 
-// static files from static folders
-app.use('/static', express.static('static'))
-
-// templating engine
-app.set('view engine', 'ejs')
-
 
 // routing with ejs files
 app.get('/', async (req, res) => {
@@ -59,9 +57,9 @@ app.get('/likes', async (req, res) => {
             promises.push(db.collection('fakeUsers').findOne({ _id: new ObjectID(likerId)})) // For each like in the likedBy array, get the corresponding user from the database and push it as a promise to the promises[]
         })
         const likes = await Promise.all(promises) // wait for all promises to finish. source for promises https://www.youtube.com/watch?v=01RTj1MWec0
-        res.render('likes', {likes: likes, user}) // render likes.ejs with likers data
+        res.render('likes', {likes: likes, user})
     } catch(err) {
-        console.log(err) // log error if there is an error
+        console.log(err)
     }
   })
 app.get('/visitors', async (req, res) => {
@@ -85,9 +83,29 @@ app.get('/profile', async (req, res) => {
         console.log(err)
     }
 })
-  
-// 404 when not found
+
+app.set('view engine', 'ejs')
+app.post('/like', async (req, res) => {
+    try {
+        const id = req.body.id
+        const likedUser = await db.collection('fakeUsers').findOne({ "_id": ObjectID(id)})
+        if (likedUser.likedBy.includes(req.session.user)){
+            await db.collection('fakeUsers').updateOne(
+                { "_id": ObjectID(id) },
+                { $pull: { 'likedBy': req.session.user }})
+                res.sendStatus(201)
+        }
+        else {
+            await db.collection('fakeUsers').updateOne(
+                { "_id": ObjectID(id) },
+                { $push: { 'likedBy': req.session.user }})
+                res.sendStatus(200)
+        }
+    } catch(err) {
+        console.log(err)
+    }
+})
+
 app.use((req, res) => res.status(404).send('404'))
 
-// listen to port and display the port in console
 app.listen(port, () => console.log('listening on port ' + port));

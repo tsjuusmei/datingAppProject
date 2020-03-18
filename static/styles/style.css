@@ -74,6 +74,12 @@ main > div ul li {
     align-items: center;
     border-bottom: 1px solid #ff61a7;
     padding-bottom: 5px;
+    justify-content: space-between;
+}
+
+.liked {
+    width: 2em;
+    border-radius: 0;
 }
 
 /* margins for profile pictures on likes and visitors page */

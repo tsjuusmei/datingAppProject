@@ -40,8 +40,9 @@
         <div>
             <ul>
                 <% for (let i = 0; i < likes.length ; i++) { %>
-                    <li> 
+                    <li>
                         <%= likes[i].name %>
+                        <img data-id="<%= likes[i]._id %>" class='liked' src="/static/images/like.icon.png" alt="">
                     </li>
 
                 <% } %>
@@ -53,7 +54,7 @@
         
     <%- include('footer') %>
 
-    <% include('tail') %>
+    <%- include('tail') %>
 
 </body>
 </html>
