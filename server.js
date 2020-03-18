@@ -23,7 +23,6 @@ mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true
     if (err) {
         throw err
     }
-
     db = client.db(process.env.DB_NAME)
 })
 
@@ -86,20 +85,6 @@ app.get('/profile', async (req, res) => {
         console.log(err)
     }
 })
-app.get('/test', test)
-
-function test(req, res) {
-    db.collection('fakeUsers').find().toArray(done)
-
-    function done(err, data) {
-        if (err) {
-            next(err);
-        } else {
-            console.log(data);
-            res.render('test.ejs', {data: data});
-        }
-    }
-}
   
 // 404 when not found
 app.use((req, res) => res.status(404).send('404'))
