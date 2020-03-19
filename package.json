@@ -8,6 +8,7 @@
     "lint": "eslint ."
   },
   "author": "Guus",
+  "homepage": "https://github.com/tsjuusmei/datingAppProject",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
