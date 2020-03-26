@@ -100,7 +100,6 @@ app.post('/like', async (req, res) => {
 app.post("/login", async (req,res) => {
     try {
         req.session.user = req.body.user;
-        const user = db.collection('fakeUsers' + req.session.user);
         res.redirect('/profile');
     } catch(err) {
         console.log(err)
