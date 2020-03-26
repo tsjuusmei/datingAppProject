@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head') %>
+    <title>Profile</title>
+</head>
+    
+<body class="profile">
+
+        <header>
+        </header>
+    
+        <main>
+            <h1>Who's browsing?</h1>
+            <form action="/login" method="post">
+                <label> Choose a user
+                    <select name="user">
+                        <option value="5e6a2a4f05bc310f94b75ba8">Sophie</option>
+                        <option value="5e6ba1bde4b2e66c746a4df7">Guus</option>
+                        <option value="5e6ed3d91c9d440000983904">Lindy</option>
+                        <option value="5e6ed3ed1c9d440000983905">Layla</option>
+                    </select>
+                </label>
+                <input type="submit">
+            </form>
+                
+        </main>
+
+    <%- include('tail') %>
+
+</body>
+</html>

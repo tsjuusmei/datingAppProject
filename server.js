@@ -33,9 +33,9 @@ mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true
 // routing with ejs files
 app.get('/', async (req, res) => {
     try {
-        req.session.user = '5e6ba1bde4b2e66c746a4df7'; // source used https://flaviocopes.com/express-sessions/ and https://www.npmjs.com/package/express-session
-        const user = await db.collection('fakeUsers').findOne({ _id: ObjectID(req.session.user)})   // find logged in user by ID
-        res.render('profile', {user})
+        req.session.user = req.body.user;
+        const user = db.collection('fakeUsers' + req.session.user);
+        res.render('login', {user});
     } catch (err) {
         console.log(err)
     }
@@ -96,6 +96,16 @@ app.post('/like', async (req, res) => {
         console.log(err)
     }
 })
+
+app.post("/login", async (req,res) => {
+    try {
+        req.session.user = req.body.user;
+        const user = db.collection('fakeUsers' + req.session.user);
+        res.redirect('/profile');
+    } catch(err) {
+        console.log(err)
+    }
+});
 
 app.use((req, res) => res.status(404).send('404'))
 

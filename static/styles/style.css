@@ -1,3 +1,5 @@
+/* Setting standards */
+
 * {
     margin: 0;
 }
@@ -17,6 +19,28 @@ ul {
     padding: 0;
 }
 
+/* Login page */
+
+main h1 {
+    text-align: center;
+    margin-top: 80px;
+}
+
+main form {
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main form input {
+    max-width: 80px;
+    margin-top: 20px;
+}
+
+/* Header */
+
 header figure img {
     max-width: 25vw;
     border-radius: 50%;
@@ -34,6 +58,8 @@ header {
     padding: 50px 0 25px 0;
     background-color: rgba(255, 97, 167, 0.8);
 }
+
+/* Main */
 
 main > ul li figure img{
     max-width: 10vw;
