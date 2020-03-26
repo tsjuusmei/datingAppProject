@@ -1,6 +1,12 @@
 # datingAppProject
 This is my feature for a dating app. It shows the user who he or she has been visited and/or liked by, and can like (and unlike) users back!
 
+<div align="center">
+
+<img src="https://github.com/tsjuusmei/datingAppProject/blob/master/docs/images/html.pages.png?raw=true" width="600">
+
+</div>
+
 # About this project
 This will be my dating app for Project Tech, a project for the second year of Communication & Multimedia Design.
 
