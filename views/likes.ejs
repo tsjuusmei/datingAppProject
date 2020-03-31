@@ -42,9 +42,8 @@
                 <% for (let i = 0; i < likes.length ; i++) { %>
                     <li>
                         <%= likes[i].name %>
-                        <img data-id="<%= likes[i]._id %>" class='liked' src="/static/images/like.icon.png" alt="">
+                        <img data-id="<%= likes[i]._id %>" class='liked' src= " <%= likes[i].likedBy.includes(user._id.toString()) ? '/static/images/like.icon.invert.png' : '/static/images/like.icon.png' %> "  alt="">
                     </li>
-
                 <% } %>
             </ul>
         </div>
