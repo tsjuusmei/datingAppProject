@@ -118,7 +118,6 @@ app.post("/like", async (req, res) => {
     console.log(err);
   }
 });
-
 app.post("/login", async (req, res) => {
   try {
     req.session.user = req.body.user;
@@ -126,6 +125,10 @@ app.post("/login", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+});
+app.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
 });
 
 app.use((req, res) => res.status(404).send("404"));
