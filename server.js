@@ -84,6 +84,7 @@ app.get("/profile", async (req, res) => {
     const user = await db
       .collection("fakeUsers")
       .findOne({ _id: ObjectID(req.session.user) });
+    console.log(user)
     res.render("profile", { user });
   } catch (err) {
     console.log(err);
@@ -93,7 +94,9 @@ app.get("/profile", async (req, res) => {
 app.set("view engine", "ejs");
 app.post("/like", async (req, res) => {
   try {
+    console.log(req)
     const id = req.body.id;
+    console.log(id)
     const likedUser = await db
       .collection("fakeUsers")
       .findOne({ _id: ObjectID(id) });
