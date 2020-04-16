@@ -76,8 +76,6 @@ Here's an example of how it looks in MongoBD:
 
 * Progressive enhancement YouTube. (December 3, 2008) Retrieved March 18, 2020 from https://www.youtube.com/watch?v=U38dyJhpUnA
 
-* HTML Semantic elements. Retrieved March 18, 2020 from https://www.w3schools.com/html/html5_semantic_elements.asp
-
 * Eloquent JavaScript (December 4, 2018) Retrieved March 18, 2020 from https://eloquentjavascript.net/
 
 * Tutorial videos by Danny de Vries. Retrieved March 18, 2020 from https://www.youtube.com/channel/UCNtqkUUWlncsFu5qhfDZ4oA
@@ -111,6 +109,10 @@ Here's an example of how it looks in MongoBD:
 * Hoisting. Retrieved March 28, 2020 from https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
 
 * Closures. Retrieved March 28, 2020 from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+
+* JavaScript Scope and Closures. Retrieved March 28, 2020 from https://css-tricks.com/javascript-scope-closures/
+
+* This operator - MDN. Retrieved March 28, 2020 from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
 * Lint (software). Retrieved March 28, 2020 from https://en.wikipedia.org/wiki/Lint_%28software%29 
 
